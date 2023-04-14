@@ -8,5 +8,14 @@ export const getAnimales = async () => {
     return response;
 }
 
-// implementar delete
+export const createAnimal = async (data) => {
+    const response = await axios.post(`${API_URL}/animales`, data);
+    return response.data;
+}
+
+
+export const deleteAnimal = async (id) => {
+    const response = await axios.delete(`${API_URL}/animales/${id}`);
+    return response.data;
+}
 

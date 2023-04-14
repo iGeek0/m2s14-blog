@@ -4,6 +4,10 @@ import { getAnimales } from '../services/main'
 function Us() {
 
     const [animales, setAnimales] = useState([]);
+    const [formAnimales, setFormAnimales] = useState({
+        nombre: "",
+        cantidad: ""
+    });
 
     useEffect(() => {
         console.log("Entro al componente Us");

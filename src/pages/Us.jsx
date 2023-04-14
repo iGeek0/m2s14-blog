@@ -9,7 +9,7 @@ function Us() {
         console.log("Entro al componente Us");
         getAnimales().then((response) => {
             console.log(response.data.data);
-            setAnimales(response.data.data);
+            setAnimales(response.data.data); // esto es como asiganle el valor a aniamales
         })
         // return () => {
         //     console.log("Salio del componente.")
@@ -20,6 +20,25 @@ function Us() {
 
     return (
         <div className="container">
+            <div className="row">
+                <div className="col-md-12">
+                    <h1>Formulario</h1>
+                    <form>
+                        <div className="mb-3">
+                            <label htmlFor="exampleInputEmail1" className="form-label">Animal</label>
+                            <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                            <div id="emailHelp" className="form-text">Escribe el nombre de un animal.</div>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="exampleInputPassword1" className="form-label">Cantidad</label>
+                            <input type="password" className="form-control" id="exampleInputPassword1" />
+                        </div>
+                        <button type="submit" className="btn btn-primary">Guardar</button>
+                    </form>
+
+                </div>
+            </div>
+            <hr />
             <div className="row">
                 <div className="col-md-12">
                     <h1>Pagina Us</h1>
@@ -39,7 +58,7 @@ function Us() {
                             {
                                 animales.map((animal) => {
                                     return (
-                                        <tr>
+                                        <tr key={animal.id}>
                                             <th>{animal.id}</th>
                                             <td>{animal.nombre}</td>
                                             <td>{animal.cantidad}</td>
